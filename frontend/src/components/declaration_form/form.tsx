@@ -27,8 +27,8 @@ export default function Form(props: {
     const entry = {
       name,
       temperature: Number(temperature),
-      hasSymptoms: Boolean(hasSymptoms),
-      hasContact: Boolean(hasContact),
+      hasSymptoms: hasSymptoms === 'true',
+      hasContact: hasContact === 'true',
     };
 
     const success = await submitForm(entry);

@@ -24,4 +24,7 @@ export default {
     Secret: process.env.JWT_SECRET ?? "",
     Exp: process.env.COOKIE_EXP ?? "", // exp at the same time as the cookie
   },
+  DB: {
+    Connection: process.env.CONNECTION ?? "",
+  },
 } as const;

@@ -21,6 +21,7 @@ const Paths = {
   DeclarationForm: {
     Base: "/declaration_form",
     Submit: "/submit",
+    All: "/",
   },
 };
 

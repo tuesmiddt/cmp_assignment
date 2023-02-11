@@ -70,6 +70,11 @@ declarationFormRouter.post(
   DeclarationFormRoutes.submit
 );
 
+declarationFormRouter.get(
+  Paths.DeclarationForm.All,
+  DeclarationFormRoutes.getAll
+);
+
 apiRouter.use(Paths.DeclarationForm.Base, declarationFormRouter);
 
 // **** Export default **** //
