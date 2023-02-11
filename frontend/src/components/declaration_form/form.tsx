@@ -22,6 +22,21 @@ export default function Form(props: {
   const [hasSymptoms, setHasSymptoms] = useState('');
   const [hasContact, setHasContact] = useState('');
   const [attemptSubmit, setAttemptSubmit] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const allFieldsValid = () => {
+    const tempNum = Number(temperature);
+
+    return (
+      name.length > 0 &&
+      temperature.length > 0 &&
+      hasContact.length > 0 &&
+      hasSymptoms.length > 0 &&
+      !isNaN(tempNum) &&
+      tempNum > 35 &&
+      tempNum < 42
+    );
+  };
 
   const onSubmit = async () => {
     const entry = {
@@ -109,9 +124,14 @@ export default function Form(props: {
         <Button
           colorScheme="blue"
           w={['100%', '100%', '100px']}
+          isLoading={isSubmitting}
           onClick={async () => {
             setAttemptSubmit(true);
-            await onSubmit();
+
+            if (allFieldsValid()) {
+              setIsSubmitting(true);
+              await onSubmit();
+            }
           }}
         >
           Submit

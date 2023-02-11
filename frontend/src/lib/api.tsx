@@ -1,11 +1,14 @@
 const ENDPOINT = 'http://localhost:8000/api';
 
-async function submitForm(entry: {
+export type Submission = {
   name: string;
   temperature: number;
   hasSymptoms: boolean;
   hasContact: boolean;
-}): Promise<boolean> {
+  createdAt?: Date;
+};
+
+async function submitForm(entry: Submission): Promise<boolean> {
   const path = ENDPOINT + '/declaration_form/submit';
   try {
     const response = await fetch(path, {
@@ -22,4 +25,18 @@ async function submitForm(entry: {
   }
 }
 
-export { submitForm };
+async function getSubmissions(): Promise<Array<Submission>> {
+  const path = ENDPOINT + '/declaration_form';
+  try {
+    const response = await fetch(path);
+    const data = await response.json();
+    return data.map((entry: any) => {
+      entry.createdAt = new Date(entry.createdAt);
+      return entry;
+    });
+  } catch (_) {
+    return [];
+  }
+}
+
+export { submitForm, getSubmissions };

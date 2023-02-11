@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.4.9",
     "@chakra-ui/theme": "^2.2.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@next/font": "13.1.6",
+    "@tanstack/react-table": "^8.7.9",
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",

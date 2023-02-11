@@ -23,7 +23,7 @@ export default function Home() {
           direction="column"
           overflow="scroll"
         >
-          <Header />
+          <Header text="Covid-19 Declaration Form" />
           <Flex w="100%" justify="center" grow="1">
             <Box w={['100%', '100%', 960]} bg="white" pt="8px" pb="8px">
               <Form onSuccess={onSubmitSuccess} onFailure={onSubmitFailure} />
