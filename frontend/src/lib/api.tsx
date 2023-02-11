@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://localhost:8000/api';
+const ENDPOINT = '/api';
 
 export type Submission = {
   name: string;
