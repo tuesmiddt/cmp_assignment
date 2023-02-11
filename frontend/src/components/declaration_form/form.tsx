@@ -11,13 +11,33 @@ import {
   Button,
   FormErrorMessage,
 } from '@chakra-ui/react';
+import { submitForm } from '@/lib/api';
 
-export default function Form() {
+export default function Form(props: {
+  onSuccess: () => void;
+  onFailure: () => void;
+}) {
   const [name, setName] = useState('');
   const [temperature, setTemperature] = useState('');
   const [hasSymptoms, setHasSymptoms] = useState('');
   const [hasContact, setHasContact] = useState('');
   const [attemptSubmit, setAttemptSubmit] = useState(false);
+
+  const onSubmit = async () => {
+    const entry = {
+      name,
+      temperature: Number(temperature),
+      hasSymptoms: Boolean(hasSymptoms),
+      hasContact: Boolean(hasContact),
+    };
+
+    const success = await submitForm(entry);
+    if (success) {
+      props.onSuccess();
+    } else {
+      props.onFailure();
+    }
+  };
 
   return (
     <Container maxW="100%">
@@ -89,9 +109,9 @@ export default function Form() {
         <Button
           colorScheme="blue"
           w={['100%', '100%', '100px']}
-          onClick={() => {
+          onClick={async () => {
             setAttemptSubmit(true);
-            console.log(name, temperature, hasSymptoms, hasContact);
+            await onSubmit();
           }}
         >
           Submit

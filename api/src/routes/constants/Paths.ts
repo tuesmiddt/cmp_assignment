@@ -18,6 +18,10 @@ const Paths = {
     Update: "/update",
     Delete: "/delete/:id",
   },
+  DeclarationForm: {
+    Base: "/declaration_form",
+    Submit: "/submit",
+  },
 };
 
 // **** Export **** //

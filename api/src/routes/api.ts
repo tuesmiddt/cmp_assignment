@@ -6,6 +6,7 @@ import Paths from "./constants/Paths";
 import User from "@src/models/User";
 import AuthRoutes from "./AuthRoutes";
 import UserRoutes from "./UserRoutes";
+import DeclarationFormRoutes from "./DeclarationFormRoutes";
 
 // **** Variables **** //
 
@@ -59,6 +60,17 @@ userRouter.delete(
 
 // Add UserRouter
 apiRouter.use(Paths.Users.Base, adminMw, userRouter);
+
+// Add Declaration Form Submission Router
+
+const declarationFormRouter = Router();
+
+declarationFormRouter.post(
+  Paths.DeclarationForm.Submit,
+  DeclarationFormRoutes.submit
+);
+
+apiRouter.use(Paths.DeclarationForm.Base, declarationFormRouter);
 
 // **** Export default **** //
 
