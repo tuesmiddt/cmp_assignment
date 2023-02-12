@@ -8,8 +8,8 @@ const Paths = {
   Base: "/api",
   DeclarationForm: {
     Base: "/declaration_form",
-    Submit: "/submit",
-    All: "/",
+    Create: "/submit",
+    Get: "/",
   },
 };
 

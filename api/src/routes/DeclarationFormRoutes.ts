@@ -14,12 +14,12 @@ async function submit(req: IReq<{ submission: TSubmission }>, res: IRes) {
   }
 
   await createSubmission(parsed.data);
-  return res.status(HttpStatusCodes.CREATED).json({}).end();
+  res.status(HttpStatusCodes.CREATED).json({}).end();
 }
 
 async function getAll(req: IReq, res: IRes) {
   const data = await getSubmissions();
-  return res.status(HttpStatusCodes.OK).json(data).end();
+  res.status(HttpStatusCodes.OK).json(data).end();
 }
 
 export default {

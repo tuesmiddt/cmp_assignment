@@ -13,12 +13,12 @@ const apiRouter = Router();
 const declarationFormRouter = Router();
 
 declarationFormRouter.post(
-  Paths.DeclarationForm.Submit,
+  Paths.DeclarationForm.Create,
   DeclarationFormRoutes.submit
 );
 
 declarationFormRouter.get(
-  Paths.DeclarationForm.All,
+  Paths.DeclarationForm.Get,
   DeclarationFormRoutes.getAll
 );
 
