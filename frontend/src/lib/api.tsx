@@ -1,4 +1,4 @@
-const ENDPOINT = '/api';
+const ENDPOINT = process.env.API_HOST + '/api';
 
 export type Submission = {
   name: string;

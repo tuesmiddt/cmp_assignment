@@ -16,6 +16,7 @@ import Paths from "@src/routes/constants/Paths";
 
 import EnvVars from "@src/constants/EnvVars";
 import HttpStatusCodes from "@src/constants/HttpStatusCodes";
+import cors from "cors";
 
 import { NodeEnvs } from "@src/constants/misc";
 import { RouteError } from "@src/other/classes";
@@ -35,6 +36,10 @@ app.use(cookieParser(EnvVars.CookieProps.Secret));
 if (EnvVars.NodeEnv === NodeEnvs.Dev) {
   app.use(morgan("dev"));
 }
+
+// Set * cors policy in dev
+const c = EnvVars.NodeEnv === NodeEnvs.Dev ? cors({ origin: "*" }) : cors();
+app.use(c);
 
 // Security
 if (EnvVars.NodeEnv === NodeEnvs.Production) {
