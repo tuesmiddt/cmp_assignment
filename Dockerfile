@@ -13,6 +13,7 @@ RUN cp -r frontend/out/* api/src/public
 
 # Build bundle with both frontend and backend
 WORKDIR /app/api
+RUN cp env/.env.production env/.env.production.local
 RUN npm install && npm run build
 
 EXPOSE 8081
