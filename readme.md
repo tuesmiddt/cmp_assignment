@@ -6,6 +6,8 @@ This is a take home assignment involving building a simple form. Viewing of prev
 
 App is deployed with Google Cloud Run with Google Artifact Registry for container hosting. Supabase free tier (dies after 7 days of no traffic) is used for DB hosting.
 
+Simple tests have been written for the API (under api/spec/tests).
+
 Try:
 
 - [Form](https://cmp-assignment-ihe5gleqrq-as.a.run.app/)
