@@ -50,6 +50,7 @@ export default function Form(props: {
     if (success) {
       props.onSuccess();
     } else {
+      setIsSubmitting(false);
       props.onFailure();
     }
   };
